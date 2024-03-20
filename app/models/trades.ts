@@ -7,7 +7,7 @@ export class Trades {
         this.trades.push(trade);
     }
 
-    tradesList(): Array<Trade>{
-        return this.trades
+    tradesList(): ReadonlyArray<Trade>{
+        return this.trades;
     }
 }
