@@ -1,16 +1,19 @@
 import { Trade } from "../models/trade.js";
 import { Trades } from "../models/trades.js";
+import { TradesView } from "../views/trades-view.js";
 export class TradeController {
     constructor() {
         this.trades = new Trades();
+        this.tradesView = new TradesView('#tradesView');
         this.inputDate = document.querySelector('#date');
         this.inputAmount = document.querySelector('#amount');
         this.inputValue = document.querySelector('#value');
+        this.tradesView.update(this.trades);
     }
     add() {
         const trade = this.setTrade();
         this.trades.addTrades(trade);
-        console.log(this.trades.tradesList());
+        this.tradesView.update(this.trades);
         this.cleanForm();
     }
     setTrade() {

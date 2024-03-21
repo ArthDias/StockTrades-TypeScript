@@ -5,7 +5,8 @@ export class Trade {
         this.value = value;
     }
     get date() {
-        return this._date;
+        const data = new Date(this._date.getTime());
+        return data;
     }
     get volume() {
         return this.amount * this.value;
